@@ -1,4 +1,4 @@
-import { db } from "@/db/db";
+import { db } from "../db/db";
 import { RequestHandler } from "express";
 import bcrypt from "bcrypt";
 export const createUser:RequestHandler = async (req, res) => {

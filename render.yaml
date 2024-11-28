@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: barter-api
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        value: "mongodb+srv://hopehavencom:qFF2MAReVy0c7J2m@cluster0.byobj.mongodb.net/IPOSDatabase?retryWrites=true&w=majority"

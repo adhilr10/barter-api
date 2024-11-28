@@ -1,12 +1,12 @@
 {
   "name": "barter-api",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "dev": "tsnd --respawn -r tsconfig-paths/register --pretty --transpile-only ./src/index.ts",
     "build": "rm -rf dist && tsc",
     "start": "node dist/index.js",
-    "postinstall": "npx prisma generate"
+    "vercel-build": "npx prisma generate && npm run build"
   },
   "keywords": [],
   "author": "",

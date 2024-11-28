@@ -4,9 +4,10 @@
   "main": "dist/index.js",
   "scripts": {
     "dev": "tsnd --respawn -r tsconfig-paths/register --pretty --transpile-only ./src/index.ts",
-    "build": "npx prisma generate && tsc && npm run copy-files",
-    "start": "node dist/index.js",
-    "copy-files": "mkdir -p netlify/functions && cp -r dist/* netlify/functions/"
+    "prebuild": "rm -rf dist netlify/functions",
+    "build": "npx prisma generate && tsc",
+    "postbuild": "mkdir -p netlify/functions && cp -r dist/* netlify/functions/",
+    "start": "node dist/index.js"
   },
   "keywords": [],
   "author": "",
@@ -28,6 +29,6 @@
     "dotenv": "^16.4.5",
     "express": "^4.21.1",
     "prisma": "^5.22.0",
-    "serverless-http": "^3.2.0"
+    "serverless-http": "^3.0.1"
   }
 }
